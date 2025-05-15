@@ -35,7 +35,11 @@
     <div class="container">
         <div class="row">
             <div class="about-col-1">
-                <img src="images/oscar2.png">
+                <div class="about-gallery">
+                    <img id="about-gallery-image" src="images/self/self1.jpg" alt="Gallery Image">
+                    <button class="gallery-btn left" onclick="prevAboutImage()">&#10094;</button>
+                    <button class="gallery-btn right" onclick="nextAboutImage()">&#10095;</button>
+                </div>
             </div>
             <div class="about-col-2">
                 <h1 class="sub-title">About Me</h1>
@@ -210,36 +214,36 @@
     <div class="container">
       <h1 class="sub-title">Projects</h1>
       <div class="project-list">
-        <div class="project" data-title="Roofba" data-description="An autonomous rooftop cleaner built in Praxis.">
-          <img src="images/project-2.png">
+        <div class="project" data-index="0" data-title="Roofba" data-description="An autonomous rooftop cleaner built in Praxis.">
+          <img src="images/roofba/roofba1.png">
           <div class="overlay">
             <h3>Roofba</h3>
             <p>Praxis III Wildfire Mechatronic Solution</p>
           </div>
         </div>
-        <div class="project" data-title="Wetlab Fridge Management System" data-description="Details about Project 1.">
-          <img src="images/project-1.png">
+        <div class="project" data-index="1" data-title="Wetlab Fridge Management System" data-description="Details about Project 1.">
+          <img src="images/igem/igem1.png">
           <div class="overlay">
             <h3>Wetlab Fridge Management System</h3>
             <p>Rack Management Using Wireless Communication</p>
           </div>
         </div>
-        <div class="project" data-title="Isocenter Search" data-description="Details about Project 3.">
-          <img src="images/project-3.png">
+        <div class="project" data-index="2"data-title="Isocenter Search" data-description="Details about Project 3.">
+          <img src="images/isocenter.png">
           <div class="overlay">
             <h3>Isocenter Search</h3>
             <p>Isocenter Optimization For Radiation Dose Delivery</p>
           </div>
         </div>
-        <div class="project hidden" data-title="AED Placement Algorithm" data-description="Details about Project 3.">
-          <img src="images/project-5.png">
+        <div class="project hidden" data-index="3" data-title="AED Placement Algorithm" data-description="Details about Project 3.">
+          <img src="images/aed.png">
           <div class="overlay">
             <h3>AED Placement Algorithm</h3>
             <p>Optimize placement of automated external defibrillator (AED)</p>
           </div>
         </div>
-        <div class="project hidden" data-title="CIV Bridge" data-description="Details about Project 3.">
-          <img src="images/project-4.png">
+        <div class="project hidden" data-index="4" data-title="CIV Bridge" data-description="Details about Project 3.">
+          <img src="images/bridge/bridge1.png">
           <div class="overlay">
             <h3>CIV Bridge</h3>
             <p>Bridge project for CIV102</p>
@@ -287,7 +291,11 @@
     <div class="project-modal-content">
       <span class="close-modal">&times;</span>
       <div class="modal-left">
-        <img id="modal-image" src="images/project-1.png" alt="Project Image">
+        <div class="gallery">
+          <img id="modal-image" src="" alt="Project Image">
+          <button class="gallery-btn left" id="prev-btn">&#10094;</button>
+          <button class="gallery-btn right" id="next-btn">&#10095;</button>
+        </div>
       </div>
       <div class="modal-right">
         <h2 id="modal-project-title">Project Title</h2>
@@ -336,31 +344,52 @@
     const modalDemo = document.getElementById("modal-demo");
     const modalTech = document.getElementById("modal-tech");
 
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    let currentImageIndex = 0;
+    let currentImages = [];
+
     // Project click handler
-    document.querySelectorAll(".project").forEach((project, index) => {
-      project.addEventListener("click", () => {
-        const projectData = projects[index];
-        modalTitle.textContent = projectData.title;
-        modalImage.src = projectData.image;
-        modalDates.textContent = projectData.dates;
-        modalOverview.textContent = projectData.description;
-        modalContribution.textContent = projectData.contribution;
-        modalGithub.href = projectData.github;
+    document.querySelectorAll(".project").forEach(project => {
+    project.addEventListener("click", () => {
+      const index = parseInt(project.getAttribute("data-index"));
+      const projectData = projects[index];
 
-        modalTech.innerHTML = projectData.tech.map(tech => `<span>${tech}</span>`).join('');
-
-        modal.style.display = "block";
-      });
+      modalTitle.textContent = projectData.title;
+      modalImage.src = projectData.image;
+      modalDates.textContent = projectData.dates;
+      modalOverview.innerHTML = projectData.description;
+      modalContribution.textContent = projectData.contribution;
+      modalGithub.href = projectData.github;
+      modalTech.innerHTML = projectData.tech.map(tech => `<span>${tech}</span>`).join('');
+      currentImages = projectData.images || [projectData.image];
+      currentImageIndex = 0;
+      modalImage.src = currentImages[currentImageIndex];
+      modal.style.display = "block";
     });
+  });
+
 
     closeBtn.onclick = () => modal.style.display = "none";
     window.onclick = e => { if (e.target === modal) modal.style.display = "none"; }
+
+    prevBtn.onclick = () => {
+      if (currentImages.length === 0) return;
+      currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+      modalImage.src = currentImages[currentImageIndex];
+    };
+
+    nextBtn.onclick = () => {
+      if (currentImages.length === 0) return;
+      currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+      modalImage.src = currentImages[currentImageIndex];
+    };
 
     // Project data
     const projects = [
       {
         title: "Roofba",
-        image: "images/project-2.png",
+        image: "images/roofba/roofba1.png",
         dates: "Feb 2025 - Apr 2025",
         description: "As part of Praxis III course, Roofba is a robot designed to prevent wildfire danger at the " +
               "wildland-urban interface of Canada. Roofba is an autonomous roof-cleaning robot that vacuums " +
@@ -369,23 +398,34 @@
         contribution: "I was responsible for the electrical and software subsystem, which entails the wheel motors, " +
               "bluetooth module, and ultrasonic sensors.",
         github: "https://github.com/kennicew/Roofba",
-        tech: ["Arduino", "Soldering"]
+        tech: ["Arduino", "Soldering"],
+        images:[
+          "images/roofba/roofba1.png",
+          "images/roofba/roofba2.jpg",
+          "images/roofba/roofba3.jpg"
+        ]
       },
       {
         title: "Weblab Fridge Management System",
-        image: "images/project-1.png",
+        image: "images/igem/igem1.png",
         dates: "Apr 2024 - Oct 2024",
         description: "To manage the workflow of wetlab fridge, the hardware team at iGEM developed a rack manager. " +
-                    "The product system consists of the racks themselves, RFID readers, graphical user interface (GUI) endpoints, " +
-                    "and servers used for communication and synchronous data storage.",
+             "The product system consists of the racks themselves, RFID readers, graphical user interface (GUI) endpoints, " +
+             "and servers used for communication and synchronous data storage. " +
+             'Check out the project more at <a href="https://2024.igem.wiki/utoronto/hardware.html#lab-management" target="_blank">iGEM Toronto wiki</a>.',
         contribution: "I programmed MQTT publisher-subscriber relationship between various endpoints including Arduino microcontrollers, " +
                     "Python UI, and MongoDB database. I also created protocols and contracts between the endpoints to ensure consistent communication.",
         github: "https://github.com/Jyoscarsun/igem24",
-        tech: ["Arduino", "MQTT", "MongoDB", "HTTP", "C++", "Wireless Communication"]
+        tech: ["Arduino", "MQTT", "MongoDB", "HTTP", "C++", "Wireless Communication"],
+        images:[
+          "images/igem/igem1.png",
+          "images/igem/igem2.png",
+          "images/igem/igem3.jpeg"
+        ]
       },
       {
         title: "Isocenter Search Algorithm for Radiation Therapy",
-        image: "images/project-3.png",
+        image: "images/isocenter.png",
         dates: "May 2024 - Sep 2024",
         description: "In radiation therapy, determining the optimal isocenter positions is crucial for effectively delivering prescribed doses "+
                     "while minimizing exposure to surrounding healthy tissues. This project implements " +
@@ -396,7 +436,7 @@
       },
       {
         title: "Optimize AED Placements",
-        image: "images/project-5.png",
+        image: "images/aed.png",
         dates: "May 2024 - Sep 2024",
         description: "This project optimizes the placement of Automated External Defibrillators (AEDs) based on historical cardiac arrest data " +
             "and geographic constraints. The project leverages the HiGHS optimization library to determine optimal AED placement to maximize coverage within a given region.",
@@ -406,13 +446,18 @@
       },
       {
         title: "Matboard Bridge Project",
-        image: "images/project-4.png",
+        image: "images/bridge/bridge1.png",
         dates: "Oct 2023 - Dec 2023",
         description: "Designed and constructed a small-scale box girder bridge using matboard, engineered to withstand increasing train loads until structural failure."+ 
                   " The objective was to maximize the bridge's failure load while maintaining efficient use of materials.",
         contribution: "I wrote the code that conducted failure load verification and generated shear force and bending moment diagrams",
         github: "https://github.com/Jyoscarsun/civ-bridge",
-        tech: ["numpy", "matplotlib", "fusion360"]
+        tech: ["numpy", "matplotlib", "fusion360"],
+        images:[
+          "images/bridge/bridge1.png",
+          "images/bridge/bridge2.jpg",
+          "images/bridge/bridge3.jpg"
+        ]
       }
     ];
 
@@ -468,6 +513,31 @@
       })
       .catch(error => console.error('Error!', error.message))
   })
+</script>
+<script>
+  const aboutImages = [
+        "images/self/self1.JPG",
+        "images/self/self2.jpg",
+        "images/self/self3.PNG",
+        "images/self/self4.jpg",
+    ];
+
+    let aboutImageIndex = 0;
+    const aboutImageElement = document.getElementById("about-gallery-image");
+
+    function showAboutImage(index) {
+        aboutImageElement.src = aboutImages[index];
+    }
+
+    function prevAboutImage() {
+        aboutImageIndex = (aboutImageIndex - 1 + aboutImages.length) % aboutImages.length;
+        showAboutImage(aboutImageIndex);
+    }
+
+    function nextAboutImage() {
+        aboutImageIndex = (aboutImageIndex + 1) % aboutImages.length;
+        showAboutImage(aboutImageIndex);
+    }
 </script>
 </body>
 </html>
