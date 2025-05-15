@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscar Sun Website</title>
+    <link rel="stylesheet" href="style_gpt.css">
+    <script src="https://kit.fontawesome.com/51926e33e9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id= "header">
+    <div class="container">
+        <nav>
+            <img src="images/logo.png" class="logo">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Experience</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <p>Engineering Science Student</p>
+            <h1>Hi, I'm <span>Oscar Sun</span><br> from Toronto</h1>
+        </div>
+    </div>
+</div> 
+<!---------------------about--------------------------->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/oscar2.png">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>I am currently a third-year Engineering Science student pursing
+                    a major in Electrical and Computer Engineering. I am passionate about hardware
+                    acceleration of machine learning, autonomous vehicle technologies, and enjoy solving
+                    complex engineering challenges. My past experiences include microcontroller programming,
+                    deep learning in formula racing, and compiler optimization.
+                </p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('courses')">Courses</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Coding Language</span><br>Python, C, Java, SystemVerilog, Assembly, MatLab, Arduino, HTML, CSS</li>
+                        <li><span>Machine Learning</span><br>Pytorch, YOLO</li>
+                        <li><span>Deverloper Tools</span><br>Git, ROS, Jupyter Notebook, Latex</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="courses">
+                    <ul>
+                        <li><span>Signal Analysis and Communication</span><br>Continuous-time and discrete-time signals and systems</li>
+                        <li><span>Computer Organization</span><br>Embedded system and processor design</li>
+                        <li><span>Foundations of Computing</span><br>Algorithm design and computational complexity</li>
+                        <li><span>Electronics</span><br>Basic electronic circuits</li>
+                        <li><span>Complex Analysis</span><br>Linear differential equations in the complex plane</li>
+                        <li><span>Introduction to Control Theory</span><br>Dynamic systems control</li>
+                        <li><span>Electronic Circuits</span><br>Analog and digital electronic circuits</li>
+                        <li><span>Semiconductor Electronic Devices</span><br>Operation, design and limitations of semiconductor devices</li>
+                        <li><span>Digital Electronics</span><br>Design of logic gates at the transistor level</li>
+                        <li><span>Systems Software</span><br>Operating system implementation</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li>
+                            <span>University of Toronto (2023-2028)</span><br>
+                            Bachelor of Applied Science in Engineering Science<br>
+                            Major in Electrical and Computer Engineering with Professional Experience Year
+                        </li>
+                        <li><span>Awards</span><br>
+                            International Scholar Award<br>
+                            University of Toronto Excellence Award (UTEA) <br>
+                            Engineering Science Research Opportunities Program (ESROP) Award
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------skills--------------------------->
+<div class="skills">
+  <div class="container">
+    <h1 class="sub-title">Skills</h1>
+    <div class="skills-list">
+      <div>
+        <i class="fa-solid fa-code"></i>
+        <h2>Coding Language</h2>
+        <p>Python, C, Java, SystemVerilog, Assembly, MatLab, Arduino, HTML, CSS</p>
+      </div>
+      <div>
+        <i class="fa-solid fa-laptop-code"></i>
+        <h2>Machine Learning</h2>
+        <p>Pytorch, YOLO, Azure AI</p>
+      </div>
+      <div> 
+        <i class="fa-solid fa-layer-group"></i>
+        <h2>Deverloper Tools</h2>
+        <p>Git, ROS, Jupyter Notebook, Latex</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!---------------------experience--------------------------->
+<div class="timeline">
+    <h1 class="sub-title">Experience</h1>
+    <div class="experience-container left-container">
+        <div class="text-box">
+            <img src="images/uoft.png">
+            <h2>Research Intern</h2>
+            <h3> <i>Natalie Enright Jerger Group</i></h3>
+            <small>May 2025 - Present</small>
+            <ul>
+                <li>Lowering Pytorch model into MLIR</li>
+                <li>Compiler optimization in collaboration with AMD NPU hardware</li>
+              </ul>              
+            <span class="left-container-arrow"></span>
+        </div>
+    </div>
+
+    <div class="experience-container right-container">
+        <div class="text-box">
+            <img src="images/utfr.jpg">
+            <h2>Deep Learning Lead</h2>
+            <h3> <i>University of Toronto Formula Racing (UTFR)</i></h3>
+            <small>Sep 2024 - Present</small>
+            <ul>
+                <li>Optimization of pre and post-processing of YOLOv8 model</li>
+                <li>Strategic cone sampling based on benchmarking results</li>
+                <li>R&D of 3dod technology</li>
+              </ul>              
+            <span class="right-container-arrow"></span>
+        </div>
+    </div>
+
+    <div class="experience-container left-container">
+        <div class="text-box">
+            <img src="images/utra.png">
+            <h2>Hackathon Director</h2>
+            <h3> <i>University of Toronto Robotics Association (UTRA)</i></h3>
+            <small>Apr 2024 - Present</small>
+            <ul>
+                <li>Organized the largest Canadian robotics hackathon partnered with MLH</li>
+                <li>Spearheaded the game design of closed challenge Capture the Flag as well as open challenge themed Health and Well Being</li>
+                <li>Fostered inclusivity in hackathon by diversifying team and hacker recruitment</li>
+              </ul>           
+            
+            <h2 style="margin-top: 20px;">Software Developer</h2>
+            <small>Sep 2024 - Apr 2024</small>
+            <ul>
+                <li>Optimized perception performance through quantizing and pruning 
+                    YOLO model and resolving ROS node bandwidth communication issues</li>
+                <li>Performed ramp labelling on raw image data using Roboflow</li>
+                <li>Migrate software pipeline from ROS to ROS2</li>
+              </ul>           
+            <span class="left-container-arrow"></span>
+        </div>
+    </div>
+
+    <div class="experience-container right-container">
+        <div class="text-box">
+            <img src="images/igem.png">
+            <h2>Hardware Engineer</h2>
+            <h3> <i>International Genetically Engineered Machine (iGEM) Toronto</i></h3>
+            <small>Mar 2024 - Jan 2025</small>
+            <ul>
+                <li>Optimized wetlab workflow by developing an Internet of Things (IoT) fridge management application</li>
+                <li>Programmed Arduino microcontrollers to interface between GUI endpoint, MQTT server, and MongoDB database</li>
+                <li>Created management protocols between key HTPP endpoints</li>
+              </ul> 
+            <span class="right-container-arrow"></span>
+        </div>
+    </div>
+
+    <div class="experience-container left-container">
+        <div class="text-box">
+            <img src="images/uoft.png">
+            <h2>Researcher</h2>
+            <h3> <i>Applied Optimization Lab</i></h3>
+            <small>May 2024 - Sep 2024</small>
+            <ul>
+                <li>Optimized AED placements in Scotland based on available cardiac arrest data</li>
+                <li>Investigated the efficacy of existing isocenter placement heuristics when used 
+                    in conjunction with knowledge-based planning (KBP) in gamma knife radiotherapy treatments </li>
+                <li>Developed an optimization-based isocenter placement solution to achieve desired dose distributions</li>
+            </ul>
+            <span class="left-container-arrow"></span>
+        </div>
+    </div>
+
+    <div class="experience-container right-container">
+        <div class="text-box">
+            <img src="images/caypt.jpg">
+            <h2>Vice Captain</h2>
+            <h3> <i>Team Schwarzschildren, Canadian Young Physicists' Tournament (CaYPT)</i></h3>
+            <small>Dec 2020 - Mar 2023</small>
+            <ul>
+                <li>Conducted theoretical research and experimental verification on IYPT problems</li>
+                <li>Execute physics experiments such as interferometry</li>
+                <li>Managed team recruitment and logistics along with team captain</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---------------------projects--------------------------->
+<div id="projects">
+    <div class="container">
+      <h1 class="sub-title">Projects</h1>
+      <div class="project-list">
+        <div class="project" data-title="Roofba" data-description="An autonomous rooftop cleaner built in Praxis.">
+          <img src="images/project-2.png">
+          <div class="overlay">
+            <h3>Roofba</h3>
+            <p>Click to learn more</p>
+          </div>
+        </div>
+        <div class="project" data-title="Wetlab Fridge Management System" data-description="Details about Project 1.">
+          <img src="images/project-1.png">
+          <div class="overlay">
+            <h3>Wetlab Fridge Management System</h3>
+            <p>Click to learn more</p>
+          </div>
+        </div>
+        <div class="project" data-title="Isocenter Search" data-description="Details about Project 3.">
+          <img src="images/project-3.png">
+          <div class="overlay">
+            <h3>Isocenter Search</h3>
+            <p>Click to learn more</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!---------------------contact--------------------------->
+<div class="contact">
+  <div class="container">
+    <div class="row">
+      <div class="contact-left">
+        <h1 class ="sub-title">Contact Me</h1>
+        <p><i class="fas fa-paper-plane"></i> jyoscar.sun@mail.utoronto.ca</p>
+        <p><i class="fas fa-phone-square-alt"></i> 647-675-6696</p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/oscar-sun-a1960b287/"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/Jyoscarsun"><i class="fab fa-github"></i></a>
+        </div>
+        <a href="images/Oscar_Resume.pdf" downaload class="btn btn2">Download CV</a>
+      </div>
+      <div class="contact-right">
+        <form>
+          <input type="text" name="Name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="Message" row="6" placeholder="Your Message"></textarea>
+          <button type="submit" class="btn btn2">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    <p>Copyright @ Oscar.</p>
+  </div>
+</div>
+  
+<!-- Fullscreen Project Modal -->
+<div id="project-modal" class="project-modal">
+    <div class="project-modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="modal-left">
+        <img id="modal-image" src="images/project-1.png" alt="Project Image">
+      </div>
+      <div class="modal-right">
+        <h2 id="modal-project-title">Project Title</h2>
+        <p><i class="calendar">📅</i> <span id="modal-dates">Project Dates</span></p>
+        <p id="modal-links">
+          <a href="#" target="_blank" id="modal-github">🔗 GitHub</a> |
+          <a href="#" target="_blank" id="modal-demo">🌐 Live Demo</a>
+        </p>
+        <h3>Project Overview</h3>
+        <p id="modal-overview">Description here...</p>
+        <h3>Personal Contribution</h3>
+        <p id="modal-contribution">This section describes what I personally worked on in the project.</p>      
+        <h3>Technologies Used</h3>
+        <div class="tech-tags" id="modal-tech">
+          <!-- Tech tags inserted dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+    
+
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+    const modal = document.getElementById("project-modal");
+  const closeBtn = document.querySelector(".close-modal");
+
+  // Content containers
+  const modalTitle = document.getElementById("modal-project-title");
+  const modalImage = document.getElementById("modal-image");
+  const modalDates = document.getElementById("modal-dates");
+  const modalOverview = document.getElementById("modal-overview");
+  const modalContribution = document.getElementById("modal-contribution");
+  const modalGithub = document.getElementById("modal-github");
+  const modalDemo = document.getElementById("modal-demo");
+  const modalTech = document.getElementById("modal-tech");
+
+  // Project click handler
+  document.querySelectorAll(".project").forEach((project, index) => {
+    project.addEventListener("click", () => {
+      const projectData = projects[index];
+      modalTitle.textContent = projectData.title;
+      modalImage.src = projectData.image;
+      modalDates.textContent = projectData.dates;
+      modalOverview.textContent = projectData.description;
+      modalContribution.textContent = projectData.contribution;
+      modalGithub.href = projectData.github;
+      modalDemo.href = projectData.demo;
+
+      modalTech.innerHTML = projectData.tech.map(tech => `<span>${tech}</span>`).join('');
+
+      modal.style.display = "block";
+    });
+  });
+
+  closeBtn.onclick = () => modal.style.display = "none";
+  window.onclick = e => { if (e.target === modal) modal.style.display = "none"; }
+
+  // Project data
+  const projects = [
+    {
+      title: "Roofba",
+      image: "images/project-2.png",
+      dates: "Feb 2025 - Apr 2025",
+      description: "As part of Praxis III course, Roofba is a robot designed to prevent wildfire danger at the " +
+             "wildland-urban interface of Canada. Roofba is an autonomous roof-cleaning robot that vacuums " +
+             "smaller types of debris, and pushes bulkier debris off the roof at a designated collection point " +
+             "when detected by computer vision.",
+      contribution: "I was responsible for the electrical and software subsystem, which entails the wheel motors, " +
+            "bluetooth module, and ultrasonic sensors.",
+      github: "https://github.com/kennicew/Roofba",
+      demo: "#",
+      tech: ["Arduino", "Soldering"]
+    },
+    {
+      title: "Weblab Fridge Management System",
+      image: "images/project-1.png",
+      dates: "Apr 2024 - Oct 2024",
+      description: "To manage the workflow of wetlab fridge, the hardware team at iGEM developed a rack manager. " +
+                  "The product system consists of the racks themselves, RFID readers, graphical user interface (GUI) endpoints, " +
+                  "and servers used for communication and synchronous data storage.",
+      contribution: "I programmed MQTT publisher-subscriber relationship between various endpoints including Arduino microcontrollers, " +
+                  "Python UI, and MongoDB database. I also created protocols and contracts between the endpoints to ensure consistent communication.",
+      github: "https://github.com/Jyoscarsun/igem24",
+      demo: "#",
+      tech: ["Arduino", "MQTT", "MongoDB", "HTTP", "C++", "Wireless Communication"]
+    },
+    {
+      title: "Isocenter Search Algorithm for Radiation Therapy",
+      image: "images/project-3.png",
+      dates: "May 2024 - Sep 2024",
+      description: "In radiation therapy, determining the optimal isocenter positions is crucial for effectively delivering prescribed doses "+
+                  "while minimizing exposure to surrounding healthy tissues. This project implements " +
+                  "an isocenter search algorithm designed to optimize radiation therapy by strategically positioning radiation isocenters.",
+      contribution: "Based on the patient kernels provided, I implemented an iterative approach to cluster isocenters and achieve desired dose distributions.",
+      github: "https://github.com/Jyoscarsun/isocenter_search/tree/main",
+      demo: "#",
+      tech: ["Gurobi Optimizer", "sklearn", "Clustering Algorithms"]
+    }
+  ];
+
+
+</script>
+
+</body>
+</html>
