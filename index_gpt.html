@@ -13,13 +13,16 @@
     <div class="container">
         <nav>
             <img src="images/logo.png" class="logo">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Experience</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#timeline">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
             </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
             <p>Engineering Science Student</p>
@@ -43,17 +46,23 @@
                     deep learning in formula racing, and compiler optimization.
                 </p>
                 <div class="tab-titles">
-                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links active-link" onclick="opentab('education')">Education</p>
                     <p class="tab-links" onclick="opentab('courses')">Courses</p>
-                    <p class="tab-links" onclick="opentab('education')">Education</p>
                 </div>
-                <div class="tab-contents active-tab" id="skills">
-                    <ul>
-                        <li><span>Coding Language</span><br>Python, C, Java, SystemVerilog, Assembly, MatLab, Arduino, HTML, CSS</li>
-                        <li><span>Machine Learning</span><br>Pytorch, YOLO</li>
-                        <li><span>Deverloper Tools</span><br>Git, ROS, Jupyter Notebook, Latex</li>
-                    </ul>
-                </div>
+                <div class="tab-contents active-tab" id="education">
+                  <ul>
+                      <li>
+                          <span>University of Toronto (2023-2028)</span><br>
+                          Bachelor of Applied Science in Engineering Science<br>
+                          Major in Electrical and Computer Engineering with Professional Experience Year
+                      </li>
+                      <li><span>Awards</span><br>
+                          International Scholar Award<br>
+                          University of Toronto Excellence Award (UTEA) <br>
+                          Engineering Science Research Opportunities Program (ESROP) Award
+                      </li>
+                  </ul>
+              </div>
                 <div class="tab-contents" id="courses">
                     <ul>
                         <li><span>Signal Analysis and Communication</span><br>Continuous-time and discrete-time signals and systems</li>
@@ -68,33 +77,19 @@
                         <li><span>Systems Software</span><br>Operating system implementation</li>
                     </ul>
                 </div>
-                <div class="tab-contents" id="education">
-                    <ul>
-                        <li>
-                            <span>University of Toronto (2023-2028)</span><br>
-                            Bachelor of Applied Science in Engineering Science<br>
-                            Major in Electrical and Computer Engineering with Professional Experience Year
-                        </li>
-                        <li><span>Awards</span><br>
-                            International Scholar Award<br>
-                            University of Toronto Excellence Award (UTEA) <br>
-                            Engineering Science Research Opportunities Program (ESROP) Award
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
 </div>
 <!---------------------skills--------------------------->
-<div class="skills">
+<div class="skills" id="skills">
   <div class="container">
     <h1 class="sub-title">Skills</h1>
     <div class="skills-list">
       <div>
         <i class="fa-solid fa-code"></i>
         <h2>Coding Language</h2>
-        <p>Python, C, Java, SystemVerilog, Assembly, MatLab, Arduino, HTML, CSS</p>
+        <p>Python, C, Java, SystemVerilog, Assembly, MatLab, R, Arduino, HTML, CSS</p>
       </div>
       <div>
         <i class="fa-solid fa-laptop-code"></i>
@@ -110,7 +105,7 @@
   </div>
 </div>
 <!---------------------experience--------------------------->
-<div class="timeline">
+<div class="timeline" id="timeline">
     <h1 class="sub-title">Experience</h1>
     <div class="experience-container left-container">
         <div class="text-box">
@@ -211,7 +206,7 @@
     </div>
 </div>
 <!---------------------projects--------------------------->
-<div id="projects">
+<div class="projects" id="projects">
     <div class="container">
       <h1 class="sub-title">Projects</h1>
       <div class="project-list">
@@ -219,28 +214,46 @@
           <img src="images/project-2.png">
           <div class="overlay">
             <h3>Roofba</h3>
-            <p>Click to learn more</p>
+            <p>Praxis III Wildfire Mechatronic Solution</p>
           </div>
         </div>
         <div class="project" data-title="Wetlab Fridge Management System" data-description="Details about Project 1.">
           <img src="images/project-1.png">
           <div class="overlay">
             <h3>Wetlab Fridge Management System</h3>
-            <p>Click to learn more</p>
+            <p>Rack Management Using Wireless Communication</p>
           </div>
         </div>
         <div class="project" data-title="Isocenter Search" data-description="Details about Project 3.">
           <img src="images/project-3.png">
           <div class="overlay">
             <h3>Isocenter Search</h3>
-            <p>Click to learn more</p>
+            <p>Isocenter Optimization For Radiation Dose Delivery</p>
           </div>
         </div>
+        <div class="project hidden" data-title="AED Placement Algorithm" data-description="Details about Project 3.">
+          <img src="images/project-5.png">
+          <div class="overlay">
+            <h3>AED Placement Algorithm</h3>
+            <p>Optimize placement of automated external defibrillator (AED)</p>
+          </div>
+        </div>
+        <div class="project hidden" data-title="CIV Bridge" data-description="Details about Project 3.">
+          <img src="images/project-4.png">
+          <div class="overlay">
+            <h3>CIV Bridge</h3>
+            <p>Bridge project for CIV102</p>
+          </div>
+        </div>
+      </div>
+      <div class="project-buttons">
+        <a href="#projects" class="btn" id="seeMore" onclick="expandProjects()">See More</a>
+        <a href="#projects" class="btn" id="seeLess" onclick="collapseProjects()" style="display: none;">See Less</a>
       </div>
     </div>
   </div>
 <!---------------------contact--------------------------->
-<div class="contact">
+<div class="contact" id="contact">
   <div class="container">
     <div class="row">
       <div class="contact-left">
@@ -254,17 +267,18 @@
         <a href="images/Oscar_Resume.pdf" downaload class="btn btn2">Download CV</a>
       </div>
       <div class="contact-right">
-        <form>
+        <form name="submit-to-google-sheet">
           <input type="text" name="Name" placeholder="Your Name" required>
           <input type="email" name="email" placeholder="Your Email" required>
           <textarea name="Message" row="6" placeholder="Your Message"></textarea>
           <button type="submit" class="btn btn2">Submit</button>
         </form>
+        <span id="msg"></span>
       </div>
     </div>
   </div>
   <div class="copyright">
-    <p>Copyright @ Oscar.</p>
+    <p>Copyright @ Oscar Sun. All Rights Reserved</p>
   </div>
 </div>
   
@@ -279,9 +293,7 @@
         <h2 id="modal-project-title">Project Title</h2>
         <p><i class="calendar">📅</i> <span id="modal-dates">Project Dates</span></p>
         <p id="modal-links">
-          <a href="#" target="_blank" id="modal-github">🔗 GitHub</a> |
-          <a href="#" target="_blank" id="modal-demo">🌐 Live Demo</a>
-        </p>
+          <a href="#" target="_blank" id="modal-github">🔗 GitHub</a>        </p>
         <h3>Project Overview</h3>
         <p id="modal-overview">Description here...</p>
         <h3>Personal Contribution</h3>
@@ -312,84 +324,150 @@
     }
 
     const modal = document.getElementById("project-modal");
-  const closeBtn = document.querySelector(".close-modal");
+    const closeBtn = document.querySelector(".close-modal");
 
-  // Content containers
-  const modalTitle = document.getElementById("modal-project-title");
-  const modalImage = document.getElementById("modal-image");
-  const modalDates = document.getElementById("modal-dates");
-  const modalOverview = document.getElementById("modal-overview");
-  const modalContribution = document.getElementById("modal-contribution");
-  const modalGithub = document.getElementById("modal-github");
-  const modalDemo = document.getElementById("modal-demo");
-  const modalTech = document.getElementById("modal-tech");
+    // Content containers
+    const modalTitle = document.getElementById("modal-project-title");
+    const modalImage = document.getElementById("modal-image");
+    const modalDates = document.getElementById("modal-dates");
+    const modalOverview = document.getElementById("modal-overview");
+    const modalContribution = document.getElementById("modal-contribution");
+    const modalGithub = document.getElementById("modal-github");
+    const modalDemo = document.getElementById("modal-demo");
+    const modalTech = document.getElementById("modal-tech");
 
-  // Project click handler
-  document.querySelectorAll(".project").forEach((project, index) => {
-    project.addEventListener("click", () => {
-      const projectData = projects[index];
-      modalTitle.textContent = projectData.title;
-      modalImage.src = projectData.image;
-      modalDates.textContent = projectData.dates;
-      modalOverview.textContent = projectData.description;
-      modalContribution.textContent = projectData.contribution;
-      modalGithub.href = projectData.github;
-      modalDemo.href = projectData.demo;
+    // Project click handler
+    document.querySelectorAll(".project").forEach((project, index) => {
+      project.addEventListener("click", () => {
+        const projectData = projects[index];
+        modalTitle.textContent = projectData.title;
+        modalImage.src = projectData.image;
+        modalDates.textContent = projectData.dates;
+        modalOverview.textContent = projectData.description;
+        modalContribution.textContent = projectData.contribution;
+        modalGithub.href = projectData.github;
 
-      modalTech.innerHTML = projectData.tech.map(tech => `<span>${tech}</span>`).join('');
+        modalTech.innerHTML = projectData.tech.map(tech => `<span>${tech}</span>`).join('');
 
-      modal.style.display = "block";
+        modal.style.display = "block";
+      });
     });
-  });
 
-  closeBtn.onclick = () => modal.style.display = "none";
-  window.onclick = e => { if (e.target === modal) modal.style.display = "none"; }
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; }
 
-  // Project data
-  const projects = [
-    {
-      title: "Roofba",
-      image: "images/project-2.png",
-      dates: "Feb 2025 - Apr 2025",
-      description: "As part of Praxis III course, Roofba is a robot designed to prevent wildfire danger at the " +
-             "wildland-urban interface of Canada. Roofba is an autonomous roof-cleaning robot that vacuums " +
-             "smaller types of debris, and pushes bulkier debris off the roof at a designated collection point " +
-             "when detected by computer vision.",
-      contribution: "I was responsible for the electrical and software subsystem, which entails the wheel motors, " +
-            "bluetooth module, and ultrasonic sensors.",
-      github: "https://github.com/kennicew/Roofba",
-      demo: "#",
-      tech: ["Arduino", "Soldering"]
-    },
-    {
-      title: "Weblab Fridge Management System",
-      image: "images/project-1.png",
-      dates: "Apr 2024 - Oct 2024",
-      description: "To manage the workflow of wetlab fridge, the hardware team at iGEM developed a rack manager. " +
-                  "The product system consists of the racks themselves, RFID readers, graphical user interface (GUI) endpoints, " +
-                  "and servers used for communication and synchronous data storage.",
-      contribution: "I programmed MQTT publisher-subscriber relationship between various endpoints including Arduino microcontrollers, " +
-                  "Python UI, and MongoDB database. I also created protocols and contracts between the endpoints to ensure consistent communication.",
-      github: "https://github.com/Jyoscarsun/igem24",
-      demo: "#",
-      tech: ["Arduino", "MQTT", "MongoDB", "HTTP", "C++", "Wireless Communication"]
-    },
-    {
-      title: "Isocenter Search Algorithm for Radiation Therapy",
-      image: "images/project-3.png",
-      dates: "May 2024 - Sep 2024",
-      description: "In radiation therapy, determining the optimal isocenter positions is crucial for effectively delivering prescribed doses "+
-                  "while minimizing exposure to surrounding healthy tissues. This project implements " +
-                  "an isocenter search algorithm designed to optimize radiation therapy by strategically positioning radiation isocenters.",
-      contribution: "Based on the patient kernels provided, I implemented an iterative approach to cluster isocenters and achieve desired dose distributions.",
-      github: "https://github.com/Jyoscarsun/isocenter_search/tree/main",
-      demo: "#",
-      tech: ["Gurobi Optimizer", "sklearn", "Clustering Algorithms"]
+    // Project data
+    const projects = [
+      {
+        title: "Roofba",
+        image: "images/project-2.png",
+        dates: "Feb 2025 - Apr 2025",
+        description: "As part of Praxis III course, Roofba is a robot designed to prevent wildfire danger at the " +
+              "wildland-urban interface of Canada. Roofba is an autonomous roof-cleaning robot that vacuums " +
+              "smaller types of debris, and pushes bulkier debris off the roof at a designated collection point " +
+              "when detected by computer vision.",
+        contribution: "I was responsible for the electrical and software subsystem, which entails the wheel motors, " +
+              "bluetooth module, and ultrasonic sensors.",
+        github: "https://github.com/kennicew/Roofba",
+        tech: ["Arduino", "Soldering"]
+      },
+      {
+        title: "Weblab Fridge Management System",
+        image: "images/project-1.png",
+        dates: "Apr 2024 - Oct 2024",
+        description: "To manage the workflow of wetlab fridge, the hardware team at iGEM developed a rack manager. " +
+                    "The product system consists of the racks themselves, RFID readers, graphical user interface (GUI) endpoints, " +
+                    "and servers used for communication and synchronous data storage.",
+        contribution: "I programmed MQTT publisher-subscriber relationship between various endpoints including Arduino microcontrollers, " +
+                    "Python UI, and MongoDB database. I also created protocols and contracts between the endpoints to ensure consistent communication.",
+        github: "https://github.com/Jyoscarsun/igem24",
+        tech: ["Arduino", "MQTT", "MongoDB", "HTTP", "C++", "Wireless Communication"]
+      },
+      {
+        title: "Isocenter Search Algorithm for Radiation Therapy",
+        image: "images/project-3.png",
+        dates: "May 2024 - Sep 2024",
+        description: "In radiation therapy, determining the optimal isocenter positions is crucial for effectively delivering prescribed doses "+
+                    "while minimizing exposure to surrounding healthy tissues. This project implements " +
+                    "an isocenter search algorithm designed to optimize radiation therapy by strategically positioning radiation isocenters.",
+        contribution: "Based on the patient kernels provided, I implemented an iterative approach to cluster isocenters and achieve desired dose distributions.",
+        github: "https://github.com/Jyoscarsun/isocenter_search/tree/main",
+        tech: ["Gurobi Optimizer", "sklearn", "Clustering Algorithms"]
+      },
+      {
+        title: "Optimize AED Placements",
+        image: "images/project-5.png",
+        dates: "May 2024 - Sep 2024",
+        description: "This project optimizes the placement of Automated External Defibrillators (AEDs) based on historical cardiac arrest data " +
+            "and geographic constraints. The project leverages the HiGHS optimization library to determine optimal AED placement to maximize coverage within a given region.",
+        contribution: "I used the HiGHS optimizer and matrix optimization to find best geographic locations for AED placements.",
+        github: "https://github.com/Jyoscarsun/aed_placement/tree/main",
+        tech: ["numpy", "highs", "optimization", "csc"]
+      },
+      {
+        title: "Matboard Bridge Project",
+        image: "images/project-4.png",
+        dates: "Oct 2023 - Dec 2023",
+        description: "Designed and constructed a small-scale box girder bridge using matboard, engineered to withstand increasing train loads until structural failure."+ 
+                  " The objective was to maximize the bridge's failure load while maintaining efficient use of materials.",
+        contribution: "I wrote the code that conducted failure load verification and generated shear force and bending moment diagrams",
+        github: "https://github.com/Jyoscarsun/civ-bridge",
+        tech: ["numpy", "matplotlib", "fusion360"]
+      }
+    ];
+
+    function expandProjects() {
+    const projects = document.querySelectorAll(".project-list .project");
+    projects.forEach((project, index) => {
+      if (index >= 3) {
+        project.classList.remove("hidden");
+      }
+    });
+
+    document.getElementById("seeMore").style.display = "none";
+    document.getElementById("seeLess").style.display = "inline-block";
     }
-  ];
 
+    function collapseProjects() {
+      const projects = document.querySelectorAll(".project-list .project");
+      projects.forEach((project, index) => {
+        if (index >= 3) {
+          project.classList.add("hidden");
+        }
+      });
 
+      document.getElementById("seeMore").style.display = "inline-block";
+      document.getElementById("seeLess").style.display = "none";
+    }
 </script>
 
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+      sidemenu.style.right = "0";
+    }
+    function closemenu(){
+      sidemenu.style.right = "-200px";
+    }
+</script>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwszaA0BMM4XK3NBpOStvPxsKD9qdsJ1EPnF1qvID69eCmjXCl3Suw6s9qOEBveuDK4/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Message sent successfully!"
+        setTimeout(function(){
+          msg.innerHTML = ""
+        },5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
 </body>
 </html>
